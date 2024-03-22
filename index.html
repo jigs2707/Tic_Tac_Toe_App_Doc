@@ -117,8 +117,10 @@
                                     release apks</a></li>
                             <li class="nav-item"><a class="nav-link" href="#iosRelease">Steps to Publish iOS App to App
                                     Store</a></li>
+                                    
                         </ul>
                     </li>
+                    <li class="nav-item"><a href="#commonerror" class="nav-link">Common Errors</a></li>
                     <li class="nav-item"><a href="#support" class="nav-link">Support</a></li>
                     <li class="nav-item"><a href="#rating" class="nav-link">Your Feedback</a></li>
                     <li class="nav-item"><a href="#contactus" class="nav-link">Contact Us</a></li>
@@ -984,6 +986,31 @@
                             <hr>
                         </section>
 
+                    </section>
+                    <hr class="divider">
+
+                    <section id="commonerror">
+                        <h3>Common Errors</h3>
+                        <ol>
+                        <li>If you get error in build version when you archive the application after testing so you can change the follow code</li>
+                      
+                        <br>  Before:<br>
+                        <br>    
+                        <code>
+                                &lt;key&gt;CFBundleShortVersionString&lt;/key&gt;<br>
+                                &lt;string&gt;$(FLUTTER_BUILD_NAME)&lt;/string&gt;<br>
+                                &lt;key&gt;CFBundleVersion&lt;/key&gt;<br>
+                                &lt;string&gt;$(FLUTTER_BUILD_NUMBER)&lt;/string&gt;<br>
+                                </code><br>
+                                <br>
+                                After:<br><br>
+                                <code>
+                                &lt;key&gt;CFBundleShortVersionString&lt;/key&gt; <br>
+                                &lt;string&gt;$(MARKETING_VERSION)&lt;/string&gt;<br>
+                                &lt;key&gt;CFBundleVersion&lt;/key&gt;<br>
+                                &lt;string&gt;$(CURRENT_PROJECT_VERSION)&lt;/string&gt;<br>
+                                </code>
+                        </ol>
                     </section>
                     <hr class="divider">
 
