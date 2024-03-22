@@ -79,7 +79,9 @@
                                     firebase auth</a></li>
                             <li class="nav-item"><a class="nav-link" href="#howToEnableFirebaseRealTimeDatabase">How to
                                     enable firebase realtime database</a></li>
-
+                            <li class="nav-item"><a class="nav-link" href="#howToEnableFirebaseStorage">How to
+                                        enable firebase storage</a></li>
+    
                             <li class="nav-item"><a class="nav-link" href="#howToChangeAppName">How to change
                                     application name</a></li>
                             <li class="nav-item"><a class="nav-link" href="#howToChangeAppVersion">How to change
@@ -91,6 +93,7 @@
 
                             <li class="nav-item"><a class="nav-link" href="#howToChangeAdIds">How to change ad type and
                                     their ad ids</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#removeAd">Remove Ad</a></li>
                             <li class="nav-item"><a class="nav-link" href="#howToChangeMusic">How to change Music</a>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="#howTochangeScoreCalculationValues">How to
@@ -341,10 +344,10 @@
                         <section id="howToEnableFirebaseRealTimeDatabase">
                             <h4>How to enable firebase realtime database</h4>
                             <ol>
-                                Go to firebase project. Click on Build -> Realtime Database, enable it and press next in
+                             <li>   Go to firebase project. Click on Build -> Realtime Database, enable it and press next in
                                 the
                                 dialog box that appears and a database will autometically be created in which your
-                                game data will be stored.
+                                game data will be stored.</li>
 
                                 <br>
                                 <br>
@@ -358,6 +361,40 @@
                             <hr>
                         </section>
 
+                        <section id="howToEnableFirebaseStorage">
+                            <h4>How to enable firebase storage</h4>
+                            <ol>
+                                <li>Go to firebase project. Click on Build -> Storage, click on Get Started and press next in
+                                the
+                                dialog box that appears and a storage will autometically be enabled in which your
+                                user profile image will be stored.</li>
+
+                                <br>
+                                <br>
+                                <img src="images/app/storage_0.png" alt="Tac Tac Toe" />
+                                <img src="images/app/storage.png" alt="Tac Tac Toe" />
+<li>Go to Rules and set the below rules</li>
+
+
+<br>
+<pre>rules_version = '2';
+    // Craft rules based on data in your Firestore database
+    // allow write: if firestore.get(
+    //    /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin;
+    service firebase.storage {
+      match /b/{bucket}/o {
+        match /{allPaths=**} {
+          allow read, write: if true;
+        }
+      }
+    }</pre>
+                                <img src="images/app/storage_1.png" alt="Tac Tac Toe" />
+
+                             
+
+                            </ol>
+                            <hr>
+                        </section>
 
 
 
@@ -463,6 +500,40 @@
                         </section>
 
 
+
+                        <section id="removeAd">
+                            <h4>Remove Ad</h4>
+                            <ol>
+                                <li>
+                                    If you want to remove Ad then you have to made these changes in code.<br>
+                                
+                                </li>
+                                <li>Go to android/app/src/main/AndroidManifest.xml</li><br>
+                                Add below permission
+                                <br>
+                                <br>
+                                <code>
+                                
+                                    &lt;uses-permission android:name="com.google.android.gms.permission.AD_ID"
+                                    tools:node="remove" /&gt;
+                                </code>
+                                <br>
+
+                                    <br>
+                                    and also add this code, if you its not there in File
+                                <br>
+                                <br>
+
+                                    <code>   xmlns:tools="http://schemas.android.com/tools"</code>
+                                    file will look like 
+                                <br>
+                                <br>
+                                  
+                                    <img src="images/app/remove_ad.png" alt="Tac Tac Toe" />
+                            </ol>
+
+                            <hr>
+                        </section>
                         <section id="howToChangeMusic">
                             <h4>How to change Music</h4>
                             <ol>
